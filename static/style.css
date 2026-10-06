@@ -1,0 +1,197 @@
+/* --- BASICS --- */
+:root {
+    --primary-color: #0f172a;       /* Dark Navy (Premium) */
+    --accent-color: #3b82f6;        /* Bright Blue */
+    --bg-color: #f8fafc;            /* Very Light Gray */
+    --card-bg: #ffffff;
+    --text-main: #1e293b;
+    --text-secondary: #64748b;
+    --border-color: #e2e8f0;
+}
+
+body {
+    background-color: var(--bg-color);
+    font-family: 'Inter', sans-serif;
+    color: var(--text-main);
+    margin: 0;
+    padding-bottom: 50px; /* Space for result at bottom */
+}
+
+/* --- NAVBAR --- */
+.navbar {
+    background-color: #ffffff;
+    border-bottom: 1px solid var(--border-color);
+    padding: 0 10%; /* More padding for centered look */
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+}
+
+.nav-brand {
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    letter-spacing: -0.5px;
+}
+
+.logo-icon {
+    width: 32px;
+    height: 32px;
+    color: var(--accent-color);
+}
+
+.nav-tag {
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 0.7rem;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-weight: 600;
+    margin-left: 8px;
+    vertical-align: middle;
+}
+
+.nav-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    margin-left: 30px;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--accent-color); }
+
+/* --- MAIN LAYOUT (CENTERED) --- */
+.main-container {
+    max-width: 800px; /* Limits width to keep it centered */
+    margin: 40px auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Space between form and result */
+}
+
+/* --- CARD --- */
+.card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border-color);
+    padding: 40px;
+}
+
+.centered-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.card-header h2 { margin: 0 0 10px 0; color: var(--primary-color); }
+.card-header p { color: var(--text-secondary); margin: 0; }
+
+/* --- FORM GRID --- */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.form-group label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+    display: block;
+}
+
+.form-control {
+    height: 48px;
+    width: 100%;
+    padding: 0 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #fff;
+    box-sizing: border-box;
+    transition: all 0.2s;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+}
+
+/* --- BUTTON --- */
+.form-actions {
+    grid-column: span 2;
+    margin-top: 15px;
+}
+
+.btn-primary {
+    width: 100%;
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 16px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.3);
+    transition: transform 0.2s;
+}
+
+.btn-primary:hover {
+    background-color: #2563eb;
+    transform: translateY(-2px);
+}
+
+/* --- RESULT CARD (BOTTOM) --- */
+.result-card {
+    background: linear-gradient(135deg, var(--primary-color), #1e293b);
+    color: white;
+    border-radius: 16px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    animation: slideUp 0.5s ease-out;
+}
+
+.result-header {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.85rem;
+    opacity: 0.8;
+    margin-bottom: 10px;
+}
+
+.price-tag {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.result-disclaimer {
+    font-size: 0.8rem;
+    opacity: 0.6;
+}
+
+.hidden { display: none; }
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- MOBILE --- */
+@media (max-width: 768px) {
+    .form-grid { grid-template-columns: 1fr; }
+    .form-actions { grid-column: span 1; }
+    .price-tag { font-size: 2.5rem; }
+    .navbar { padding: 0 20px; }
+}
